@@ -1,0 +1,30 @@
+{
+  "name": "gulp-css-whitespace",
+  "version": "0.1.0",
+  "description": "Converts white-space significant CSS to normal CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com/rschmukler/gulp-css-whitespace"
+  },
+  "keywords": [
+    "gulp",
+    "css-whitespace"
+  ],
+  "author": "Ryan Schmukler <ryan@slingingcode.com> (http://slingingcode.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rschmukler/grunt-css-whitespace/issues"
+  },
+  "dependencies": {
+    "css-whitespace": "~1.1.0",
+    "map-stream": "~0.1.0",
+    "gulp-util": "~2.2.12"
+  },
+  "devDependencies": {
+    "gulp-debug": "~0.1.2"
+  }
+}
