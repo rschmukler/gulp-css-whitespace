@@ -26,7 +26,7 @@ Gulp plugin for [css-whitespace](https://github.com/reworkcss/css-whitespace).
 Replaces the extension of the file in question. For example, convertig `styl` to `css`.
 
 ```js
-    return gulp.src('./src/whitespace.styl')
-            .pipe(whitespace({replaceExtension: '.css'}))
-            .pipe(gulp.dest('build'));
+return gulp.src('./src/whitespace.styl')
+        .pipe(whitespace({replaceExtension: '.css'}))
+        .pipe(gulp.dest('build'));
 ```
