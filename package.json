@@ -17,7 +17,7 @@
   "author": "Ryan Schmukler <ryan@slingingcode.com> (http://slingingcode.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rschmukler/grunt-css-whitespace/issues"
+    "url": "https://github.com/rschmukler/gulp-css-whitespace/issues"
   },
   "dependencies": {
     "css-whitespace": "~1.1.0",
