@@ -12,6 +12,7 @@
   },
   "keywords": [
     "gulp",
+    "gulpplugin",
     "css-whitespace"
   ],
   "author": "Ryan Schmukler <ryan@slingingcode.com> (http://slingingcode.com/)",
