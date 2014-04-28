@@ -1,19 +1,20 @@
-var mapStream = require('map-stream'),
+var map = require('map-stream'),
     gutil = require('gulp-util'),
     whitespace = require('css-whitespace');
 
 module.exports = function(opts) {
   opts = opts || {};
-  function convertWhitespace(file, cb) {
+  return map(function (file, cb) {
     if(opts.replaceExtension) {
       file.path = gutil.replaceExtension(file.path, opts.replaceExtension);
     }
     try {
-      file.contents = new Buffer(whitespace(file.contents.toString()));
+      var str = file.contents.toString();
+      str = whitespace(str.replace(/\s*[{};]+\s*$/gm, ''));
+      file.contents = new Buffer(str);
       cb(null, file);
     } catch (err){
       cb(err, file);
     }
-  }
-  return mapStream(convertWhitespace);
+  });
 };
