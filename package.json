@@ -1,6 +1,6 @@
 {
   "name": "gulp-css-whitespace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Converts white-space significant CSS to normal CSS",
   "main": "index.js",
   "scripts": {
