@@ -1,22 +1,35 @@
-var map = require('map-stream'),
-    gutil = require('gulp-util'),
-    whitespace = require('css-whitespace');
+var gutil = require('gulp-util');
+var through = require('through2');
+var whitespace = require('css-whitespace');
 
 module.exports = function(opts) {
   opts = opts || {};
-  return map(function (file, cb) {
+
+  return through.obj(function (file, enc, cb) {
+    if (file.isNull()) {
+      this.push(file);
+      return cb();
+    }
+
+    if (file.isStream()) {
+      this.emit('error', new gutil.PluginError('gulp-css-whitespace', 'Streaming not supported'));
+      return cb();
+    }
+
     if(opts.replaceExtension) {
       file.path = gutil.replaceExtension(file.path, opts.replaceExtension);
     }
+
     try {
       var str = file.contents.toString();
       str = whitespace(str.replace(/\s*[{};]+\s*$/gm, ''));
       file.contents = new Buffer(str);
-      cb(null, file);
-    } catch (err){
+    } catch (err) {
       err.fileName = file.path;
-      err.plugin = 'gulp-css-whitespace';
-      cb(err, file);
+      this.emit('error', new gutil.PluginError('gulp-css-whitespace', err));
     }
+
+    this.push(file);
+    cb();
   });
 };
