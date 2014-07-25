@@ -14,6 +14,8 @@ module.exports = function(opts) {
       file.contents = new Buffer(str);
       cb(null, file);
     } catch (err){
+      err.fileName = file.path;
+      err.plugin = 'gulp-css-whitespace';
       cb(err, file);
     }
   });
