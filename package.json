@@ -10,6 +10,12 @@
     "type": "git",
     "url": "git://git@github.com/rschmukler/gulp-css-whitespace"
   },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "gulp",
     "gulpplugin",
@@ -22,10 +28,11 @@
   },
   "dependencies": {
     "css-whitespace": "~1.1.0",
-    "map-stream": "~0.1.0",
-    "gulp-util": "~2.2.12"
+    "through2": "^0.5.1",
+    "gulp-util": "~3.0"
   },
   "devDependencies": {
+    "mocha": "*",
     "gulp-debug": "~0.1.2"
   }
 }

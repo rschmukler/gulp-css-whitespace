@@ -2,7 +2,7 @@
 
 Gulp plugin for [css-whitespace](https://github.com/reworkcss/css-whitespace).
 
-## Example Usage
+## Example
 
 ```js
   var gulp = require('gulp'),
