@@ -1,4 +1,5 @@
-var gutil = require('gulp-util');
+var replaceExtension = require('replace-ext');
+var PluginError = require('plugin-error');
 var through = require('through2');
 var whitespace = require('css-whitespace');
 
@@ -12,12 +13,12 @@ module.exports = function(opts) {
     }
 
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('gulp-css-whitespace', 'Streaming not supported'));
+      this.emit('error', new PluginError('gulp-css-whitespace', 'Streaming not supported'));
       return cb();
     }
 
     if(opts.replaceExtension) {
-      file.path = gutil.replaceExtension(file.path, opts.replaceExtension);
+      file.path = replaceExtension(file.path, opts.replaceExtension);
     }
 
     try {
@@ -26,7 +27,7 @@ module.exports = function(opts) {
       file.contents = new Buffer(str);
     } catch (err) {
       err.fileName = file.path;
-      this.emit('error', new gutil.PluginError('gulp-css-whitespace', err));
+      this.emit('error', new PluginError('gulp-css-whitespace', err));
     }
 
     this.push(file);
